@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    [
+      "emotion",
+      {
+        "labelFormat": "[filename]--[local]",
+        "cssPropOptimization": true
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3
+      }
+    ],
+    "@babel/react",
+    "@babel/typescript",
+    "@emotion/babel-preset-css-prop"
+  ]
+}
