@@ -21,4 +21,5 @@ export const Footer = styled.footer`
 
 export const Main = styled.main`
   min-height: calc(100vh - ${headerHeight}px - ${footerHeight}px);
+  overflow: hidden;
 `;

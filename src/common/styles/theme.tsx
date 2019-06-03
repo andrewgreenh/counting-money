@@ -7,12 +7,12 @@ import { ClassNames } from '../types';
 const theme = {
   name: 'Default',
   colors: {
-    mainBackground: 'white',
-    mainBackgroundNegative: '#082B26',
+    mainBackground: '#eee',
+    mainBackgroundNegative: '#333',
     mainBackgroundLayeringFunction: darken,
 
     main: '#2C9686',
-    mainNegative: 'white',
+    mainNegative: '#eee',
     mainLayeringFunction: darken
   },
   fontCss: css``
@@ -27,7 +27,9 @@ const darkTheme: Theme = {
     ...theme.colors,
     mainBackgroundNegative: theme.colors.mainBackground,
     mainBackground: theme.colors.mainBackgroundNegative,
-    mainBackgroundLayeringFunction: lighten
+    mainBackgroundLayeringFunction: lighten,
+
+    mainLayeringFunction: lighten,
   }
 };
 
