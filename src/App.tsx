@@ -1,13 +1,18 @@
 import React from 'react';
-import { Frame } from './Frame';
-import { GlobalStyles } from './GlobalStyles';
-import { ThemeControllerProvider } from './theme';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { GlobalStyles } from './common/styles/GlobalStyles';
+import { ThemeControllerProvider } from './common/styles/theme';
+import { MainScreen } from './screens/main/Main.Screen';
 
 export function App() {
   return (
-    <ThemeControllerProvider>
-      <GlobalStyles />
-      <Frame />
-    </ThemeControllerProvider>
+    <Router>
+      <ThemeControllerProvider>
+        <GlobalStyles />
+        <Switch>
+          <Route path="/" render={() => <MainScreen />} />
+        </Switch>
+      </ThemeControllerProvider>
+    </Router>
   );
 }

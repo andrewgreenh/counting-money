@@ -1,7 +1,7 @@
 import css from '@emotion/css';
 import { ThemeProvider } from 'emotion-theming';
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
-import { ClassNames } from './types';
+import { ClassNames } from '../types';
 
 const theme = {
   colors: {
