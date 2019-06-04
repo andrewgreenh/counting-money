@@ -1,19 +1,22 @@
 import css from '@emotion/css';
 import { ThemeProvider } from 'emotion-theming';
 import { darken, lighten } from 'polished';
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 import { ClassNames } from '../types';
 
 const theme = {
   name: 'Default',
   colors: {
-    mainBackground: '#eee',
+    mainBackground: '#efefef',
     mainBackgroundNegative: '#333',
-    mainBackgroundLayeringFunction: darken,
 
-    main: '#2C9686',
-    mainNegative: '#eee',
-    mainLayeringFunction: darken
+    layerOnMainBackground: darken(0.08, '#eee'),
+    layerOnMainBackgroundNegative: lighten(0.2, '#333'),
+
+    accent: '#2C9686',
+    accentNegative: '#eee',
+
+    accentOnLayerOnMainBackground: '#2C9686'
   },
   fontCss: css``
 };
@@ -24,12 +27,16 @@ const darkTheme: Theme = {
   ...theme,
   name: 'Dark',
   colors: {
-    ...theme.colors,
-    mainBackgroundNegative: theme.colors.mainBackground,
-    mainBackground: theme.colors.mainBackgroundNegative,
-    mainBackgroundLayeringFunction: lighten,
+    mainBackground: '#333',
+    mainBackgroundNegative: '#eee',
 
-    mainLayeringFunction: lighten,
+    layerOnMainBackground: darken(0.1, '#333'),
+    layerOnMainBackgroundNegative: darken(0.1, '#eee'),
+
+    accent: lighten(0.1, '#2C9686'),
+    accentNegative: '#eee',
+
+    accentOnLayerOnMainBackground: lighten(0.2, '#2C9686')
   }
 };
 

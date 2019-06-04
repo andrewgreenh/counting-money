@@ -31,7 +31,9 @@ export function MainScreen() {
             path={'/' + screen.thunk}
             render={() => (
               <>
-                <Header>{screen.title}</Header>
+                <Header>
+                  <div css={headerContentCss}>{screen.title}</div>
+                </Header>
                 <Main>{screen.content()}</Main>
               </>
             )}
@@ -85,14 +87,9 @@ const tabLinkCss = themed(
 
     color: ${transparentize(0.5, t.colors.mainBackgroundNegative)};
 
-    &:active {
-      background: transparent;
-      -webkit-tap-highlight-color: transparent;
-    }
-
     &.active {
       transform: translate3d(0, -2px, 0);
-      color: ${t.colors.main};
+      color: ${t.colors.accentOnLayerOnMainBackground};
     }
   `
 );
@@ -101,4 +98,12 @@ const tabLinksCss = css`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+`;
+
+const headerContentCss = css`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 0 ${1 / 1.2}em;
 `;

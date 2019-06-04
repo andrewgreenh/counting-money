@@ -1,5 +1,6 @@
 import { Global } from '@emotion/core';
 import css from '@emotion/css';
+import React from 'react';
 import { themed } from './theme';
 
 const globalCss = themed(
@@ -8,6 +9,7 @@ const globalCss = themed(
       box-sizing: border-box;
       font: inherit;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html,
