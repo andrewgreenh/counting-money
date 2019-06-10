@@ -9,12 +9,12 @@ export const useLocation = () => {
   return context.location;
 };
 
-export function useMatch<P = {}>() {
-  const context = useContext(__RouterContext) as RouteComponentProps<P>;
+export function useMatch<ParameterType = {}>() {
+  const context = useContext(__RouterContext) as RouteComponentProps<ParameterType>;
   return context.match;
 }
 
-export function useParams<P = {}>() {
-  const context = useContext(__RouterContext) as RouteComponentProps<P>;
+export function useParams<ParameterType = {}>() {
+  const context = useContext(__RouterContext) as RouteComponentProps<ParameterType>;
   return context.match.params;
 }

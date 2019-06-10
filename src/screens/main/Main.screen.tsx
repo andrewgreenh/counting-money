@@ -5,25 +5,16 @@ import { transparentize } from 'polished';
 import React from 'react';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import { Footer, Header, Main } from '../../common/Layout';
+import { Page } from '../../common/Page';
 import { themed } from '../../common/styles/theme';
+import { flexColumn } from '../../common/styles/utils/flex';
 import { MainAddEntryScreen } from './screens/add-entry/AddEntry.screen';
 import { MainHomeScreen } from './screens/home/Home.screen';
 import { MainSettingsScreen } from './screens/settings/Settings.screen';
 
 export function MainScreen() {
-  const footer = (
-    <Footer css={tabLinksCss}>
-      {screens.map(screen => (
-        <NavLink key={screen.thunk} css={tabLinkCss} to={'/' + screen.thunk} replace>
-          <FontAwesomeIcon icon={screen.icon} />
-          <span>{screen.tabTitle}</span>
-        </NavLink>
-      ))}
-    </Footer>
-  );
-
   return (
-    <>
+    <Page css={[flexColumn]}>
       <Switch>
         {screens.map(screen => (
           <Route
@@ -41,8 +32,15 @@ export function MainScreen() {
         ))}
         <Redirect to="/home" />
       </Switch>
-      {footer}
-    </>
+      <Footer css={tabLinksCss}>
+        {screens.map(screen => (
+          <NavLink key={screen.thunk} css={tabLinkCss} to={'/' + screen.thunk} replace>
+            <FontAwesomeIcon icon={screen.icon} />
+            <span>{screen.tabTitle}</span>
+          </NavLink>
+        ))}
+      </Footer>
+    </Page>
   );
 }
 
@@ -62,7 +60,7 @@ const screens = [
     thunk: 'settings'
   },
   {
-    title: 'Add entry',
+    title: 'Choose category',
     content: () => <MainAddEntryScreen />,
     icon: faPlusSquare,
     tabTitle: 'Add entry',
@@ -78,8 +76,6 @@ const tabLinkCss = themed(
     align-items: center;
     text-decoration: none;
     justify-content: center;
-
-    padding: 1em;
 
     background: transparent;
     transition: transform 0.2s;

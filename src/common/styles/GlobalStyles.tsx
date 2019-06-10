@@ -10,6 +10,7 @@ const globalCss = themed(
       font: inherit;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
+      overflow: hidden;
     }
 
     html,

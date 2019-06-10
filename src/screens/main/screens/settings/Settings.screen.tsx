@@ -1,4 +1,5 @@
 import React from 'react';
+import { MainPadding } from '../../../../common/Layout';
 import styled from '../../../../common/styles/styled';
 import { useThemeController } from '../../../../common/styles/theme';
 import { Toggle } from '../../../../common/Toggle';
@@ -7,6 +8,7 @@ export function MainSettingsScreen() {
   const theme = useThemeController();
   return (
     <>
+      <MainPadding />
       <SettingsRow>
         <label htmlFor="main-settings-screen-darkmode-toggle">Darkmode</label>
         <Toggle
